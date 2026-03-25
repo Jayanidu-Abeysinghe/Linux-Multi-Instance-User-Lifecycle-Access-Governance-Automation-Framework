@@ -15,24 +15,10 @@ This project helps you:
 
 ## 📌 Architecture Overview
 
-```text
-Local Machine
-  ├── remote-user-manager.sh
-  ├── remote-permission-manager.sh
-  ├── servers.txt
-  ├── pub_keys/
-  ├── permissions/
-  ├── user_registry.json
-  └── logs/user-actions.log
-          │
-          ▼
-Multiple EC2 Instances
-  ├── user-manager.sh
-  ├── permission-manager.sh
-  ├── /home/<admin>/user-onboarding/user_registry.json
-  ├── /home/<admin>/user-onboarding/logs/user-actions.log
-  └── ACL-protected project directories
-```
+<p align="center">
+  <img src="https://github.com/Jayanidu-Abeysinghe/Linux-Multi-Instance-User-Lifecycle-Access-Governance-Automation-Framework/blob/main/images/diagram.png" width="700"><br><br>
+  <em>Architecture Diagram</em>
+</p>
 
 ---
 
@@ -147,17 +133,32 @@ What happens:
 4. Updates remote registry/log
 5. Syncs registry/log back to local
 
+<p align="center">
+  <img src="https://github.com/Jayanidu-Abeysinghe/Linux-Multi-Instance-User-Lifecycle-Access-Governance-Automation-Framework/blob/main/images/1.png" width="1000"><br><br>
+  <em>Add user</em>
+</p>
+
 ### 2) Remove user
 
 ```bash
 ./remote-user-manager.sh remove <username>
 ```
 
+<p align="center">
+  <img src="https://github.com/Jayanidu-Abeysinghe/Linux-Multi-Instance-User-Lifecycle-Access-Governance-Automation-Framework/blob/main/images/2.png" width="1000"><br><br>
+  <em>Remove user</em>
+</p>
+
 ### 3) Update user SSH key
 
 ```bash
 ./remote-user-manager.sh update <username> <new_public_key_file>
 ```
+
+<p align="center">
+  <img src="https://github.com/Jayanidu-Abeysinghe/Linux-Multi-Instance-User-Lifecycle-Access-Governance-Automation-Framework/blob/main/images/3.png" width="1000"><br><br>
+  <em>Update user SSH key</em>
+</p>
 
 ---
 
@@ -169,17 +170,31 @@ What happens:
 ./remote-permission-manager.sh grant <username> <profile1> [profile2 ...]
 ```
 
+<p align="center">
+  <img src="https://github.com/Jayanidu-Abeysinghe/Linux-Multi-Instance-User-Lifecycle-Access-Governance-Automation-Framework/blob/main/images/4.png" width="1000"><br><br>
+  <em>Grant permissions</em>
+</p>
+
 ### 2) Revoke permissions
 
 ```bash
 ./remote-permission-manager.sh revoke <username> <profile1> [profile2 ...]
 ```
 
+<p align="center">
+  <img src="https://github.com/Jayanidu-Abeysinghe/Linux-Multi-Instance-User-Lifecycle-Access-Governance-Automation-Framework/blob/main/images/5.png" width="1000"><br><br>
+  <em>Revoke permissions</em>
+</p>
+
 ### 3) Update permissions (revoke + grant)
 
 ```bash
 ./remote-permission-manager.sh update <username> <profile1> [profile2 ...]
 ```
+<p align="center">
+  <img src="https://github.com/Jayanidu-Abeysinghe/Linux-Multi-Instance-User-Lifecycle-Access-Governance-Automation-Framework/blob/main/images/6.png" width="1000"><br><br>
+  <em>Update permissions (revoke + grant)</em>
+</p>
 
 Important:
 
@@ -244,6 +259,12 @@ Registry example:
 ]
 ```
 
+logs/user-actions.log example:
+<p align="center">
+  <img src="https://github.com/Jayanidu-Abeysinghe/Linux-Multi-Instance-User-Lifecycle-Access-Governance-Automation-Framework/blob/main/images/7.png" width="900"><br><br>
+  <em>logs/user-actions.log</em>
+</p>
+
 ---
 
 ## 🧠 How Multi-Instance Execution Works
@@ -255,6 +276,11 @@ done < servers.txt
 ```
 
 So one command applies to all configured instances.
+
+<p align="center">
+  <img src="https://github.com/Jayanidu-Abeysinghe/Linux-Multi-Instance-User-Lifecycle-Access-Governance-Automation-Framework/blob/main/images/9.png" width="900"><br><br>
+  <em>logs/user-actions.log</em>
+</p>
 
 ---
 
