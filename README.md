@@ -175,6 +175,11 @@ What happens:
   <em>Grant permissions</em>
 </p>
 
+<p align="center">
+  <img src="https://github.com/Jayanidu-Abeysinghe/Linux-Multi-Instance-User-Lifecycle-Access-Governance-Automation-Framework/blob/main/images/8.png" width="700"><br><br>
+  <em>ACL Permissions</em>
+</p>
+
 ### 2) Revoke permissions
 
 ```bash
@@ -279,7 +284,7 @@ So one command applies to all configured instances.
 
 <p align="center">
   <img src="https://github.com/Jayanidu-Abeysinghe/Linux-Multi-Instance-User-Lifecycle-Access-Governance-Automation-Framework/blob/main/images/9.png" width="900"><br><br>
-  <em>logs/user-actions.log</em>
+  <em>Multi-Instance Execution</em>
 </p>
 
 ---
@@ -346,5 +351,5 @@ ssh -i ~/.ssh/linux-user.pem ubuntu@<instance-ip>
 
 For questions/support:
 
-- Email: amjayniducodeolima@gmail.com
+- Email: jayanidu1011@gmail.com
 
